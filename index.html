@@ -1,118 +1,183 @@
-
-!
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SleepAI - Sleep Quality Predictor</title><style>
+<title>SleepAI</title>
+
+<style>
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:Arial,sans-serif;
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
 }
 
 body{
-    background:#000;
-    color:white;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    min-height:100vh;
-    padding:20px;
+background:#000;
+color:white;
+display:flex;
+justify-content:center;
+align-items:center;
+min-height:100vh;
+padding:20px;
 }
 
 .container{
-    width:100%;
-    max-width:420px;
-    background:#111;
-    border-radius:20px;
-    padding:25px;
-    box-shadow:0 0 20px rgba(255,255,255,0.1);
+width:100%;
+max-width:420px;
+background:#111;
+padding:25px;
+border-radius:20px;
+box-shadow:0 0 20px rgba(255,255,255,0.1);
 }
 
 .slide{
-    display:none;
-    text-align:center;
+display:none;
+text-align:center;
 }
 
 #slide1{
-    display:block;
+display:block;
 }
 
 img{
-    width:100%;
-    border-radius:15px;
-    margin-bottom:15px;
+width:100%;
+max-width:280px;
+border-radius:15px;
+margin-bottom:15px;
 }
 
-h1,h2{
-    margin-bottom:10px;
+h1{
+margin-bottom:10px;
+color:#00e676;
+}
+
+h2{
+margin-bottom:10px;
 }
 
 p{
-    margin-bottom:10px;
+color:#ccc;
+margin-bottom:10px;
 }
 
 ul{
-    text-align:left;
-    margin:15px 0;
-    padding-left:20px;
+text-align:left;
+margin-top:15px;
+padding-left:20px;
 }
 
 li{
-    margin-bottom:8px;
+margin-bottom:10px;
 }
 
 input{
-    width:100%;
-    padding:12px;
-    margin:10px 0;
-    border:none;
-    border-radius:10px;
-    background:#222;
-    color:white;
-    font-size:16px;
+width:100%;
+padding:12px;
+margin:10px 0;
+background:#222;
+border:1px solid #333;
+border-radius:10px;
+color:white;
+font-size:16px;
 }
 
 button{
-    width:100%;
-    padding:12px;
-    background:#00c853;
-    color:white;
-    border:none;
-    border-radius:10px;
-    font-size:16px;
-    margin-top:10px;
-    cursor:pointer;
+width:100%;
+padding:12px;
+background:#00c853;
+color:white;
+border:none;
+border-radius:10px;
+font-size:16px;
+margin-top:10px;
+cursor:pointer;
 }
 
 .score{
-    font-size:35px;
-    color:#00e676;
-    font-weight:bold;
-    margin:10px 0;
+font-size:40px;
+font-weight:bold;
+color:#00e676;
+margin:15px 0;
 }
 
 .result-box{
-    background:#1b1b1b;
-    padding:15px;
-    border-radius:12px;
-    margin-top:10px;
+background:#1b1b1b;
+padding:15px;
+border-radius:15px;
+margin-top:10px;
 }
-</style></head><body><div class="container"><!-- Slide 1 --><div id="slide1" class="slide"><img src="https://images.unsplash.com/photo-1511296265581-c2450046447d?auto=format&fit=crop&w=800&q=80"><h1>😴 SleepAI</h1><p>AI Powered Sleep Quality Predictor</p><h3>Benefits of Good Sleep</h3><ul>
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<!-- Slide 1 -->
+
+<div id="slide1" class="slide">
+
+<h1>😴 SleepAI</h1>
+
+<img src="sleep.jpg" alt="Sleep Image">
+
+<p>AI Powered Sleep Quality Predictor</p>
+
+<h3>Benefits of Good Sleep</h3>
+
+<ul>
 <li>🧠 Improves memory and concentration</li>
 <li>❤️ Supports heart health</li>
-<li>💪 Boosts immunity</li>
-<li>😊 Improves mood</li>
-<li>⚡ Increases energy levels</li>
-</ul><button onclick="showSlide(2)">Get Started</button>
+<li>💪 Strengthens immunity</li>
+<li>😊 Improves mood and mental health</li>
+<li>⚡ Boosts energy levels</li>
+</ul>
 
-</div><!-- Slide 2 --><div id="slide2" class="slide"><h2>Enter Your Details</h2><input type="number" id="sleep" placeholder="Sleep Hours"><input type="number" id="stress" placeholder="Stress Level (1-10)"><input type="number" id="steps" placeholder="Daily Steps"><button onclick="predict()">Predict Sleep Quality</button>
+<button onclick="showSlide(2)">Get Started</button>
 
-</div><!-- Slide 3 --><div id="slide3" class="slide"><img src="https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?auto=format&fit=crop&w=800&q=80"><h2>Prediction Result</h2><div class="result-box"><div id="score" class="score"></div><h3 id="quality"></h3><p id="tip"></p></div><button onclick="showSlide(1)">Try Again</button>
+</div>
 
-</div></div><script>
+<!-- Slide 2 -->
+
+<div id="slide2" class="slide">
+
+<h2>Enter Your Details</h2>
+
+<input type="number" id="sleep" placeholder="Sleep Hours">
+
+<input type="number" id="stress" placeholder="Stress Level (1-10)">
+
+<input type="number" id="steps" placeholder="Daily Steps">
+
+<button onclick="predict()">Predict Sleep Quality</button>
+
+</div>
+
+<!-- Slide 3 -->
+
+<div id="slide3" class="slide">
+
+<h2>Prediction Result</h2>
+
+<div class="result-box">
+
+<div id="score" class="score"></div>
+
+<h3 id="quality"></h3>
+
+<p id="tip"></p>
+
+</div>
+
+<button onclick="showSlide(1)">Try Again</button>
+
+</div>
+
+</div>
+
+<script>
 
 function showSlide(num){
 
@@ -130,8 +195,8 @@ let stress = parseInt(document.getElementById("stress").value);
 let steps = parseInt(document.getElementById("steps").value);
 
 if(isNaN(sleep) || isNaN(stress) || isNaN(steps)){
-    alert("Please fill all fields");
-    return;
+alert("Please enter all details");
+return;
 }
 
 let score = 50;
@@ -140,20 +205,20 @@ if(sleep >= 7) score += 25;
 if(stress <= 5) score += 15;
 if(steps >= 8000) score += 10;
 
-let quality = "";
-let tip = "";
+let quality="";
+let tip="";
 
 if(score >= 80){
-    quality = "✅ Good Sleep";
-    tip = "Excellent! Maintain your healthy routine.";
+quality="✅ Good Sleep";
+tip="Excellent! Maintain your healthy sleep routine.";
 }
 else if(score >= 60){
-    quality = "😐 Average Sleep";
-    tip = "Try reducing stress and increasing physical activity.";
+quality="😐 Average Sleep";
+tip="Try reducing stress and increasing physical activity.";
 }
 else{
-    quality = "⚠️ Poor Sleep";
-    tip = "Increase sleep duration and manage stress effectively.";
+quality="⚠️ Poor Sleep";
+tip="Sleep longer and manage stress effectively.";
 }
 
 document.getElementById("score").innerHTML = score + "/100";
@@ -163,5 +228,7 @@ document.getElementById("tip").innerHTML = tip;
 showSlide(3);
 }
 
-</script></body>
+</script>
+
+</body>
 </html>
