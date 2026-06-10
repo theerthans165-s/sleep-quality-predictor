@@ -6,6 +6,7 @@
 <title>SleepAI</title>
 
 <style>
+
 *{
 margin:0;
 padding:0;
@@ -29,7 +30,7 @@ max-width:420px;
 background:#111;
 padding:25px;
 border-radius:20px;
-box-shadow:0 0 20px rgba(255,255,255,0.1);
+box-shadow:0 0 20px rgba(0,230,118,0.2);
 }
 
 .slide{
@@ -41,35 +42,37 @@ text-align:center;
 display:block;
 }
 
-img{
-width:100%;
-max-width:280px;
-border-radius:15px;
-margin-bottom:15px;
-}
-
 h1{
-margin-bottom:10px;
 color:#00e676;
+margin-bottom:10px;
+text-shadow:
+0 0 10px #00e676,
+0 0 20px #00e676;
 }
 
 h2{
-margin-bottom:10px;
+margin-bottom:15px;
 }
 
 p{
 color:#ccc;
-margin-bottom:10px;
+margin-bottom:15px;
 }
 
-ul{
-text-align:left;
+img{
+width:100%;
+max-width:320px;
+border-radius:15px;
+margin:15px 0;
+}
+
+.info-box{
+background:#1b1b1b;
+padding:15px;
+border-radius:12px;
+border:1px solid #00e676;
+box-shadow:0 0 10px rgba(0,230,118,0.3);
 margin-top:15px;
-padding-left:20px;
-}
-
-li{
-margin-bottom:10px;
 }
 
 input{
@@ -85,29 +88,38 @@ font-size:16px;
 
 button{
 width:100%;
-padding:12px;
+padding:14px;
 background:#00c853;
 color:white;
 border:none;
-border-radius:10px;
+border-radius:12px;
 font-size:16px;
-margin-top:10px;
+font-weight:bold;
 cursor:pointer;
+margin-top:10px;
+
+box-shadow:
+0 0 10px #00c853,
+0 0 20px #00c853;
 }
 
 .score{
-font-size:40px;
+font-size:42px;
 font-weight:bold;
 color:#00e676;
 margin:15px 0;
+text-shadow:
+0 0 10px #00e676;
 }
 
 .result-box{
 background:#1b1b1b;
 padding:15px;
-border-radius:15px;
-margin-top:10px;
+border-radius:12px;
+border:1px solid #00e676;
+box-shadow:0 0 10px rgba(0,230,118,0.3);
 }
+
 </style>
 </head>
 
@@ -121,21 +133,25 @@ margin-top:10px;
 
 <h1>😴 SleepAI</h1>
 
-<img src="sleep.jpg" alt="Sleep Image">
-
 <p>AI Powered Sleep Quality Predictor</p>
 
-<h3>Benefits of Good Sleep</h3>
+<img src="benefits.png" alt="Benefits of Sleep">
 
-<ul>
-<li>🧠 Improves memory and concentration</li>
-<li>❤️ Supports heart health</li>
-<li>💪 Strengthens immunity</li>
-<li>😊 Improves mood and mental health</li>
-<li>⚡ Boosts energy levels</li>
-</ul>
+<div class="info-box">
 
-<button onclick="showSlide(2)">Get Started</button>
+<h3>🌙 Why Sleep Matters</h3>
+
+<p>
+Getting 7–9 hours of quality sleep improves physical health,
+mental wellbeing, emotional balance, immunity,
+and overall energy.
+</p>
+
+</div>
+
+<button onclick="showSlide(2)">
+Get Started
+</button>
 
 </div>
 
@@ -145,13 +161,21 @@ margin-top:10px;
 
 <h2>Enter Your Details</h2>
 
-<input type="number" id="sleep" placeholder="Sleep Hours">
+<input type="number"
+id="sleep"
+placeholder="Sleep Hours">
 
-<input type="number" id="stress" placeholder="Stress Level (1-10)">
+<input type="number"
+id="stress"
+placeholder="Stress Level (1-10)">
 
-<input type="number" id="steps" placeholder="Daily Steps">
+<input type="number"
+id="steps"
+placeholder="Daily Steps">
 
-<button onclick="predict()">Predict Sleep Quality</button>
+<button onclick="predict()">
+Predict Sleep Quality
+</button>
 
 </div>
 
@@ -171,7 +195,9 @@ margin-top:10px;
 
 </div>
 
-<button onclick="showSlide(1)">Try Again</button>
+<button onclick="showSlide(1)">
+Try Again
+</button>
 
 </div>
 
@@ -186,17 +212,25 @@ document.getElementById("slide2").style.display="none";
 document.getElementById("slide3").style.display="none";
 
 document.getElementById("slide"+num).style.display="block";
+
 }
 
 function predict(){
 
-let sleep = parseFloat(document.getElementById("sleep").value);
-let stress = parseInt(document.getElementById("stress").value);
-let steps = parseInt(document.getElementById("steps").value);
+let sleep =
+parseFloat(document.getElementById("sleep").value);
+
+let stress =
+parseInt(document.getElementById("stress").value);
+
+let steps =
+parseInt(document.getElementById("steps").value);
 
 if(isNaN(sleep) || isNaN(stress) || isNaN(steps)){
+
 alert("Please enter all details");
 return;
+
 }
 
 let score = 50;
@@ -209,23 +243,38 @@ let quality="";
 let tip="";
 
 if(score >= 80){
+
 quality="✅ Good Sleep";
+
 tip="Excellent! Maintain your healthy sleep routine.";
+
 }
 else if(score >= 60){
+
 quality="😐 Average Sleep";
+
 tip="Try reducing stress and increasing physical activity.";
+
 }
 else{
+
 quality="⚠️ Poor Sleep";
-tip="Sleep longer and manage stress effectively.";
+
+tip="Increase sleep duration and manage stress effectively.";
+
 }
 
-document.getElementById("score").innerHTML = score + "/100";
-document.getElementById("quality").innerHTML = quality;
-document.getElementById("tip").innerHTML = tip;
+document.getElementById("score").innerHTML =
+score + "/100";
+
+document.getElementById("quality").innerHTML =
+quality;
+
+document.getElementById("tip").innerHTML =
+tip;
 
 showSlide(3);
+
 }
 
 </script>
