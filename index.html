@@ -1,35 +1,74 @@
-<!DOCTYPE html>
-<html>
+<!DOCTYPE html><html>
 <head>
-    <title>Sleep Quality Predictor</title>
-</head>
-<body>
-    <h1>Sleep Quality Predictor</h1>
-    <p>Welcome to my AI project.</p>
+<title>Sleep Quality Predictor</title><style>
+body{
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg,#667eea,#764ba2);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+    margin:0;
+}
 
-    <label>Sleep Duration (hours):</label>
-    <input type="number" id="sleep"><br><br>
+.container{
+    background:white;
+    width:90%;
+    max-width:350px;
+    padding:25px;
+    border-radius:20px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.2);
+    text-align:center;
+}
 
-    <label>Stress Level (1-10):</label>
-    <input type="number" id="stress"><br><br>
+h1{
+    color:#333;
+}
 
-    <button onclick="predict()">Predict</button>
+input{
+    width:90%;
+    padding:12px;
+    margin:10px 0;
+    border:1px solid #ccc;
+    border-radius:10px;
+}
 
-    <h2 id="result"></h2>
+button{
+    width:100%;
+    padding:12px;
+    border:none;
+    border-radius:10px;
+    background:#667eea;
+    color:white;
+    font-size:16px;
+}
 
-    <script>
-    function predict() {
-        let sleep = parseFloat(document.getElementById("sleep").value);
-        let stress = parseInt(document.getElementById("stress").value);
+#result{
+    margin-top:20px;
+    font-size:22px;
+    font-weight:bold;
+}
+</style></head><body><div class="container">
+<h1>😴 Sleep Predictor</h1><input type="number" id="sleep" placeholder="Sleep Duration (hours)"><input type="number" id="stress" placeholder="Stress Level (1-10)"><button onclick="predict()">Predict</button>
 
-        if (sleep >= 7 && stress <= 5) {
-            document.getElementById("result").innerHTML =
-                "✅ Good Sleep Expected";
-        } else {
-            document.getElementById("result").innerHTML =
-                "⚠️ Poor Sleep Expected";
-        }
-    }
-    </script>
-</body>
+<h2 id="result"></h2>
+</div><script>
+function predict() {
+
+let sleep =
+parseFloat(document.getElementById("sleep").value);
+
+let stress =
+parseInt(document.getElementById("stress").value);
+
+if (sleep >= 7 && stress <= 5) {
+document.getElementById("result").innerHTML =
+"✅ Good Sleep";
+}
+else {
+document.getElementById("result").innerHTML =
+"⚠️ Poor Sleep";
+}
+}
+</script></body>
 </html>
